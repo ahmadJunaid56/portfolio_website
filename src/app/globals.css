@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+body {
+  color: white;
+  background-color: #162138;
+}
+
+/* Custom CSS for underline effect */
+.nav-link {
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #55aeed;
+  transition: width 0.2s ease-in-out;
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Custom font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.main_page h1 {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Social Links hover effects */
+.social_links i {
+  border: 2px solid white;
+  border-radius: 50%;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.social_links i:hover {
+  background-color: #007bff;
+  transform: translateY(-0.25rem);
+  transition: all 5s ease-in-out;
+}
+
+/* Button hover effect */
+.cv:hover {
+  box-shadow: 2px 0px 10px #ddd;
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-1rem);
+  }
+}
+
+.profile {
+  animation: bounce 2s infinite;
+  box-shadow: 3px 0px 25px #ddd;
+}
+
+.scroll:hover {
+  box-shadow: 3px 0px 20px #ddd;
+}
+
+/* designing of scroll bar */
+::-webkit-scrollbar {
+  width: 0.675rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #55aeed;
+}
