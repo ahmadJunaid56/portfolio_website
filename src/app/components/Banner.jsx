@@ -48,7 +48,7 @@ export default function MainPage() {
   }, [charIndex, index, isDeleting]);
 
   return (
-    <section className="main_page py-10">
+    <section className="main_page py-20">
       <div className="container mx-auto px-5 py-5">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left Side (Text and Social Links) */}
