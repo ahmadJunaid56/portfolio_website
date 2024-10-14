@@ -84,7 +84,7 @@ const Services = () => {
               SEO-Friendly Code
             </h5>
             <p className="text-gray-300 mt-4">
-              I develop SEO-friendly code to improve your website's visibility
+              I develop SEO-friendly code to improve your websites visibility
               on search engines, ensuring better indexing and higher rankings.
             </p>
           </div>

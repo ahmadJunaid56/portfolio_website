@@ -6,20 +6,21 @@ import {
   faInstagram,
   faLinkedinIn,
 } from "@fortawesome/free-brands-svg-icons";
+import { useMemo } from "react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import portfolio from "/public/portfolio.png";
 export default function MainPage() {
-  const roles = [
-    "Frontend Developer",
-    "UI/UX Designer",
-    "Entrepreneur",
-    "Blogger",
-  ];
   const [currentRole, setCurrentRole] = useState("");
   const [index, setIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+
+  // Inside the component
+  const roles = useMemo(
+    () => ["Frontend Developer", "UI/UX Designer", "Entrepreneur", "Blogger"],
+    []
+  );
 
   useEffect(() => {
     let typingTimeout;
@@ -45,8 +46,7 @@ export default function MainPage() {
     typingTimeout = setTimeout(typeRole, 100); // Start typing after initial delay
 
     return () => clearTimeout(typingTimeout); // Clear timeout on component unmount
-  }, [charIndex, index, isDeleting]);
-
+  }, [charIndex, index, isDeleting, roles]);
   return (
     <section className="main_page py-20">
       <div className="container mx-auto px-5 py-5">
@@ -58,7 +58,7 @@ export default function MainPage() {
               Ahmad Junaid
             </h1>
             <h3 className="text-2xl">
-              I'm a <span className="text-blue-400">{currentRole}</span>
+              I am a <span className="text-blue-400">{currentRole}</span>
             </h3>
 
             {/* Social Links */}
