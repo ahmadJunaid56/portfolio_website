@@ -1,95 +1,79 @@
-const Skills = () => {
+"use client";
+import Image from "next/image";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+const skills = [
+  { name: "HTML5", imageSrc: "/html-5.png" },
+  { name: "JavaScript", imageSrc: "/java-script.png" },
+  { name: "Tailwind", imageSrc: "/tailwind-css.png" },
+  { name: "Bootstrap", imageSrc: "/bootstrap.png" },
+  { name: "CSS", imageSrc: "/cascading-style-sheets.png" },
+  { name: "Sass", imageSrc: "/sass.png" },
+  { name: "React JS", imageSrc: "/science.png" },
+  { name: "Next JS", imageSrc: "/next-js.png" },
+];
+
+const MySkills = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   return (
-    <section id="skills" className="pt-32 pb-20 bg-gray-900 px-6" data-aos="fade-up">
-      <div className="container mx-auto">
-        {/* Skills Heading */}
-        <h2 className="text-white text-center text-4xl font-bold mb-10">
-          My <span className="text-blue-500">Skills</span>
+    <section className="py-4" id="skills">
+      <div className="max-w-7xl mx-4 px-4 sm:px-6 lg:px-8 text-center">
+        <h2
+          className="text-black text-center text-5xl font-semibold mb-12"
+          data-aos="fade-down"
+        >
+          MY{" "}
+          <span
+            className="text-gradient text-3xl uppercase lg:text-6xl font-semibold"
+            style={{
+              backgroundImage: "linear-gradient(45deg, #1E90FF, #FF1493)", // Gradient from blue to pink
+              WebkitBackgroundClip: "text", // For Safari
+              color: "transparent",
+            }}
+          >
+            Skills
+          </span>
         </h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-16">
+          {skills.map((skill, index) => {
+            // Decide animation based on row
+            const isSecondRow = index >= 4; // Check if the skill is in the second row
+            const aosAnimation = isSecondRow ? "zoom-in-right" : "zoom-in-left"; // Assign animation
 
-        {/* Progress Bars Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-white">
-          {/* Left Column */}
-          <div data-aos="flip-up">
-            <div className="mb-6">
-              <h5 className="text-lg font-semibold">HTML 5</h5>
-              <div className="w-full bg-gray-700 h-4 rounded-lg overflow-hidden">
+            return (
+              <div
+                key={index}
+                className="flex flex-col items-center"
+                data-aos={aosAnimation}
+                data-aos-delay={index * 100} // Adds a delay for each item
+              >
                 <div
-                  className="bg-blue-500 h-full text-right pr-2 text-sm text-black rounded-lg"
-                  style={{ width: "95%" }}
+                  className="p-4 border-2 rounded-lg flex items-center justify-center h-40 w-40"
+                  style={{
+                    borderImage: "linear-gradient(45deg, #1E90FF, #FF1493) 1", // Gradient border
+                  }}
                 >
-                  95%
+                  <Image
+                    src={skill.imageSrc}
+                    alt={skill.name}
+                    width={200}
+                    height={200}
+                    className="object-contain h-20"
+                  />
                 </div>
+                <p className="mt-2 uppercase text-2xl">{skill.name}</p>
               </div>
-            </div>
-
-            <div className="mb-6">
-              <h5 className="text-lg font-semibold">CSS 3</h5>
-              <div className="w-full bg-gray-700 h-4 rounded-lg overflow-hidden">
-                <div
-                  className="bg-blue-500 h-full text-right pr-2 text-sm text-black rounded-lg"
-                  style={{ width: "80%" }}
-                >
-                  80%
-                </div>
-              </div>
-            </div>
-
-            <div className="mb-6">
-              <h5 className="text-lg font-semibold">Bootstrap</h5>
-              <div className="w-full bg-gray-700 h-4 rounded-lg overflow-hidden">
-                <div
-                  className="bg-blue-500 h-full text-right pr-2 text-sm text-black rounded-lg"
-                  style={{ width: "75%" }}
-                >
-                  75%
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column */}
-          <div data-aos="flip-down">
-            <div className="mb-6">
-              <h5 className="text-lg font-semibold">JavaScript</h5>
-              <div className="w-full bg-gray-700 h-4 rounded-lg overflow-hidden">
-                <div
-                  className="bg-blue-500 h-full text-right pr-2 text-sm text-black rounded-lg"
-                  style={{ width: "75%" }}
-                >
-                  75%
-                </div>
-              </div>
-            </div>
-
-            <div className="mb-6">
-              <h5 className="text-lg font-semibold">React</h5>
-              <div className="w-full bg-gray-700 h-4 rounded-lg overflow-hidden">
-                <div
-                  className="bg-blue-500 h-full text-right pr-2 text-sm text-black rounded-lg"
-                  style={{ width: "80%" }}
-                >
-                  80%
-                </div>
-              </div>
-            </div>
-
-            <div className="mb-6">
-              <h5 className="text-lg font-semibold">Tailwind CSS</h5>
-              <div className="w-full bg-gray-700 h-4 rounded-lg overflow-hidden">
-                <div
-                  className="bg-blue-500 h-full text-right pr-2 text-sm text-black rounded-lg"
-                  style={{ width: "70%" }}
-                >
-                  70%
-                </div>
-              </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 };
 
-export default Skills;
+export default MySkills;

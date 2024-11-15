@@ -24,12 +24,26 @@ const ScrollToTop = () => {
     <div
       id="scrollUp"
       title="Scroll To Top"
-      className={`fixed scroll right-8 bottom-12 h-11 w-10 rounded text-center cursor-pointer z-50 bg-blue-500 transition-all duration-400 ease-in-out ${
+      className={`fixed scroll right-8 bottom-12 h-14 w-14 rounded-full text-center cursor-pointer z-50 bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg transform transition-all duration-300 ease-in-out ${
         scrollActive ? "block" : "hidden"
-      }`}
+      } hover:scale-110`}
     >
-      <a href="#home">
-        <span className="text-2xl text-white">&#x21e7;</span>
+      <a href="#home" className="flex items-center justify-center h-full">
+        {/* Updated Arrow Icon */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={2}
+          stroke="white"
+          className="h-6 w-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M5 15l7-7 7 7"
+          />
+        </svg>
       </a>
     </div>
   );
