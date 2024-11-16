@@ -15,7 +15,7 @@ export default function Border() {
                 }}>
             About Me
           </h1>
-          <p className="paragraph-text text-justify leading-8 text-2xl">
+          <p className="paragraph-text text-justify leading-8 text-xl">
             At KMI Group, we're passionate about building materials.
             We supply high-quality chipboard and tiles to professionals and homeowners.
             Our mission is to deliver exceptional products and service.
