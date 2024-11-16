@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { useEffect, useState, useMemo } from "react";
 import Image from "next/image";
-import portfolio from "/public/portfolio.png";
+import portfolio from "/public/portfolio-image.png";
 
 export default function MainPage() {
   const [currentRole, setCurrentRole] = useState("");
@@ -59,7 +59,7 @@ export default function MainPage() {
       <div className="container mx-auto px-2 lg:px-8 py-5 z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
           {/* Left Side (Text and Social Links) */}
-          <div className="mt-5 text-center md:text-left space-y-4">
+          <div className="mt-5 text-center md:text-left">
             <h3 className="text-2xl font-medium">Hello, I am</h3>
             <h1 className="text-4xl text-black lg:text-6xl">Ahmad Junaid</h1>
             <h3 className="text-xl text-black lg:text-2xl mt-3">
@@ -105,9 +105,9 @@ export default function MainPage() {
             <Image
               src={portfolio}
               alt="Ahmad Junaid Profile Picture"
-              width={360}
-              height={360}
-              className="rounded-full border-2 border-black profile z-10"
+              width={340}
+              height={340}
+              className="rounded-full profile z-10"
             />
           </div>
         </div>

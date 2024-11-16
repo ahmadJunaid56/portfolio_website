@@ -76,7 +76,7 @@ p {
 
 .profile {
   animation: bounce 2s infinite;
-  box-shadow: 3px 2px 15px #8a8a8a;
+  box-shadow: 3px 6px 12px #868686;
 }
 
 .scroll {
@@ -184,7 +184,7 @@ p {
   padding: 10px 20px;
   margin-top: 20px;
   text-decoration: none;
-  color: #000;
+  color: #fff;
   border-radius: 5px;
 }
 
@@ -267,9 +267,9 @@ p {
 /* Specific positions and sizes for the squares */
 .animated-squares .square:nth-child(1) {
   top: 10%;
-  left: 10%;
-  width: 55px;
-  height: 56px;
+  left: 8%;
+  width: 35px;
+  height: 36px;
 }
 
 .animated-squares .square:nth-child(2) {

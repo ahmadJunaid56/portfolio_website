@@ -7,9 +7,12 @@ import "aos/dist/aos.css";
 import project1 from "/public/project (1).jpg";
 import project2 from "/public/project (2).jpg";
 import project3 from "/public/project (4).jpg";
-import project4 from "/public/project (1).jpg";
-import project5 from "/public/project (2).jpg";
-import project6 from "/public/project (4).jpg";
+import project4 from "/public/project.jpg";
+import project5 from "/public/project (3).jpg";
+import project6 from "/public/project (5).jpg";
+import project7 from "/public/project  (6).jpg";
+import project8 from "/public/project  (7).jpg";
+import project9 from "/public/project  (8).jpg";
 
 const ProjectCard = ({ image, title, link, animation }) => {
   return (
@@ -81,20 +84,20 @@ const Projects = () => {
       animation: "zoom-in-right",
     },
     {
-      image: project4,
-      title: "Personal Blog",
+      image: project7,
+      title: "Food Website",
       link: "https://ahmadjunaid56.github.io/e-commerce-website/",
       animation: "zoom-in-left",
     },
     {
-      image: project5,
-      title: "Business Website",
+      image: project8,
+      title: "Pizza Shop Website",
       link: "https://ahmadjunaid56.github.io/e-commerce-website/",
       animation: "zoom-in-right",
     },
     {
-      image: project6,
-      title: "Startup Landing Page",
+      image: project9,
+      title: "Client Management System",
       link: "https://ahmadjunaid56.github.io/e-commerce-website/",
       animation: "zoom-in-right",
     },

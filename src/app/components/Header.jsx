@@ -18,10 +18,10 @@ export default function Navbar() {
 
   return (
     <section id="home" className="header_wrapper px-10 pb-4 bg-gray-50">
-      <nav className="w-full py-4 text-black">
+      <nav className="w-full py-2 text-black">
         <div className="container mx-auto flex justify-between items-center">
           {/* Logo */}
-          <a href="#home" className="text-2xl lg:text-3xl font-bold">
+          <a href="#home" className="text-lg lg:text-3xl font-semibold">
             Portfolio
           </a>
 
@@ -42,11 +42,11 @@ export default function Navbar() {
                   <li key={index}>
                     <a
                       href={link}
-                      className={`text-xl pb-2 ${
+                      className={`text-lg pb-2 ${
                         activeLink === link
-                          ? "gradient-underline"
-                          : ""
-                      } text-black hover:gradient-underline`}
+                          ? "border-b-2 border-blue-500 text-blue-500"
+                          : "border-b-2 border-transparent"
+                      } text-black hover:border-blue-500 hover:text-blue-500 transition duration-300`}
                       onClick={() => handleSetActiveLink(link)}
                     >
                       {link.slice(1).charAt(0).toUpperCase() + link.slice(2)}
@@ -61,7 +61,7 @@ export default function Navbar() {
           <div className="hidden lg:block">
             <a
               href="/path/to/your/cv.pdf"
-              className="text-lg font-semibold py-2 px-4 rounded-lg border-2 bg-transparent border-gradient bg-gradient-to-r from-blue-500 to-pink-500 text-transparent bg-clip-text hover:bg-gradient-to-r hover:from-blue-500 hover:to-pink-500 hover:text-white transition-all duration-300 ease-in-out"
+              className="text-base font-semibold py-1 px-3 border-2 bg-transparent border-gradient bg-gradient-to-r from-blue-500 to-pink-500 text-transparent bg-clip-text hover:bg-gradient-to-r hover:from-blue-500 hover:to-pink-500 hover:text-pink-400 transition-all duration-300 ease-in-out"
               download
             >
               Download CV
@@ -89,9 +89,9 @@ export default function Navbar() {
                         href={link}
                         className={`text-base font-normal ${
                           activeLink === link
-                            ? "gradient-underline"
-                            : ""
-                        } text-black hover:gradient-underline`}
+                            ? "border-b-2 border-blue-500 text-blue-500"
+                            : "border-b-2 border-transparent"
+                        } text-black hover:border-blue-500 hover:text-blue-500 transition duration-300`}
                         onClick={() => handleSetActiveLink(link)}
                       >
                         {link.slice(1).charAt(0).toUpperCase() + link.slice(2)}
@@ -102,7 +102,7 @@ export default function Navbar() {
                 <li>
                   <a
                     href="/path/to/your/cv.pdf"
-                    className="text-sm font-semibold py-2 px-4 rounded-lg border-2 bg-transparent border-gradient bg-gradient-to-r from-blue-500 to-pink-500 text-transparent bg-clip-text hover:bg-gradient-to-r hover:from-blue-500 hover:to-pink-500 text-black transition-all duration-300 ease-in-out"
+                    className="text-sm font-semibold py-2 px-4 rounded-lg border-2 bg-transparent border-gradient bg-gradient-to-r from-blue-500 to-pink-500 text-transparent bg-clip-text hover:bg-gradient-to-r hover:from-blue-500 hover:to-pink-500 hover:text-white transition-all duration-300 ease-in-out"
                     download
                   >
                     Download CV
