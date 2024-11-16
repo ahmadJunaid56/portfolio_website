@@ -60,7 +60,7 @@ export default function MainPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
           {/* Left Side (Text and Social Links) */}
           <div className="mt-5 text-center md:text-left space-y-4">
-            <h3 className="text-2xl font-medium">Hello, I'm</h3>
+            <h3 className="text-2xl font-medium">Hello, I am</h3>
             <h1 className="text-4xl text-black lg:text-6xl">Ahmad Junaid</h1>
             <h3 className="text-xl text-black lg:text-2xl mt-3">
               I'm a{" "}
@@ -77,7 +77,7 @@ export default function MainPage() {
             </h3>
             <p className="mt-5 text-lg text-justify mx-2 lg:mx-0">
               Passionate about creating intuitive, user-centric digital
-              experiences. Let’s collaborate to build something amazing.
+              experiences. Let collaborate to build something amazing.
             </p>
 
             {/* Social Links */}
