@@ -63,7 +63,7 @@ export default function MainPage() {
             <h3 className="text-2xl font-medium">Hello, I am</h3>
             <h1 className="text-4xl text-black lg:text-6xl">Ahmad Junaid</h1>
             <h3 className="text-xl text-black lg:text-2xl mt-3">
-              I'm a{" "}
+              I am a{" "}
               <span
                 className="text-gradient text-3xl font-semibold"
                 style={{
