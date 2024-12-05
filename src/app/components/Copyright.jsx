@@ -5,7 +5,7 @@ export default function Copyright() {
     <>
       <footer className="text-light py-4 bg-gray-200">
         <div className="container text-center">
-          <p>&copy; 2024 Ahmad Junaid. All Rights Reserved.</p>
+          <p className="text-base">&copy; 2024 Ahmad Junaid. All Rights Reserved.</p>
         </div>
       </footer>
     </>

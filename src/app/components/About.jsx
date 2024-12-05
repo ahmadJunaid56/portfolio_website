@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import aboutImage from "/public/developer.gif"; // Replace with the correct path if necessary
+import aboutImage from "/public/developer.gif";
 
 export default function Border() {
   return (
@@ -10,8 +10,8 @@ export default function Border() {
           <h1
             className="text-gradient text-4xl font-semibold"
             style={{
-              backgroundImage: "linear-gradient(45deg, #1E90FF, #FF1493)", // Gradient from blue to pink
-              WebkitBackgroundClip: "text", // For Safari
+              backgroundImage: "linear-gradient(45deg, #1E90FF, #FF1493)",
+              WebkitBackgroundClip: "text", 
               color: "transparent",
             }}
           >
@@ -27,7 +27,10 @@ export default function Border() {
             ensuring compatibility across all browsers. My goal is to bring your
             ideas to life through clean code and innovative design solutions.
           </p>
-          <a href="/about" className="bg-blue-400 hover:bg-blue-500">
+          <a href="https://github.com/ahmadJunaid56"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-white bg-blue-400 hover:bg-blue-600 transition-colors">
             Explore More
           </a>
         </div>

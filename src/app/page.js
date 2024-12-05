@@ -4,6 +4,7 @@ import About from "./components/About";
 import Services from "./components/Services";
 import Skills from "./components/Skill";
 import Project from "./components/Project";
+import Cards from "./components/Cards";
 import Contact from "./components/Contact";
 import Copyright from "./components/Copyright";
 import ScrollToTop from "./components/ScrollToTop";
@@ -18,6 +19,7 @@ export default function Home() {
       <Services />
       <Skills />
       <Project />
+      <Cards />
       <Contact />
       <Copyright />
       <ScrollToTop />

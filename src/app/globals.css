@@ -1,24 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Global Body Styles */
+:root {
+  --font-poppins: "Poppins", sans-serif;
+}
 body {
-  background-color: white; /* White background */
-  color: #1f2937; /* Default text color (gray-800) */
+  color: #1f2937; 
   overflow-x: hidden;
+  font-family: var(--font-poppins);
 }
 
-h1 {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-}
-/* Secondary Text Color (Gray) */
 p {
   font-size: 18px;
 }
 
-/* Custom CSS for underline effect */
 .nav-link {
   position: relative;
   padding-bottom: 0.5rem;
@@ -41,10 +36,6 @@ p {
   width: 100%;
 }
 
-/* Custom font */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
-
-/* Social Links hover effects */
 .social_links a {
   border: 2px solid black;
   border-radius: 50%;
@@ -58,12 +49,10 @@ p {
   transition: all 0.3s ease-in-out;
 }
 
-/* Button hover effect */
 .cv:hover {
   box-shadow: 2px 0px 10px #ddd;
 }
 
-/* Bounce Animation */
 @keyframes bounce {
   0%,
   100% {
@@ -75,8 +64,8 @@ p {
 }
 
 .profile {
-  animation: bounce 2s infinite;
-  box-shadow: 3px 6px 12px #868686;
+  animation: bounce 3s infinite;
+  box-shadow: 0px 4px 10px rgba(118, 118, 118, 0.644);
 }
 
 .scroll {
@@ -99,18 +88,18 @@ p {
     to bottom,
     #61a0f9,
     #a4d4f9
-  ); /* Blue gradient for track */
+  ); 
 }
 
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(
     to bottom,
-    #fcb8f9,
-    #fa92d0
-  ); /* Pink gradient for thumb */
+    #eeb8fc,
+    #d388e7
+  ); 
 }
 .gradient-underline {
-  background-image: linear-gradient(to right, #4facfe, #f093fb);
+  background-image: linear-gradient(to right, #4facfe, #d180f6);
   background-size: 100% 3px; /* Adjust thickness */
   background-repeat: no-repeat;
   background-position: 0 100%;
@@ -119,13 +108,13 @@ p {
 
 .gradient-outline {
   border: 2px solid transparent;
-  background-image: linear-gradient(to right, #4facfe, #f093fb);
+  background-image: linear-gradient(to right, #4facfe, #d793fb);
   background-origin: border-box;
   background-clip: padding-box, border-box;
 }
 
 .border-gradient {
-  border-image: linear-gradient(to right, #4facfe, #f093fb) 1;
+  border-image: linear-gradient(to right, #4facfe, #d379ec) 1;
 }
 .border-gradient:hover {
   color: #000;
@@ -151,7 +140,6 @@ p {
 
 .about1 .aboutText {
   width: 40%;
-  /* Reduced to make space for larger image */
   min-width: 300px;
   background: #f5f6fa;
   padding: 40px;
@@ -161,7 +149,6 @@ p {
 }
 
 .about1 .aboutText h1 {
-  /* font-size: 1.5rem; */
   font-weight: bold;
   text-transform: uppercase;
   position: relative;
@@ -178,7 +165,6 @@ p {
   background: #192a56;
 }
 
-
 .about1 .aboutText a {
   display: inline-block;
   padding: 10px 20px;
@@ -190,7 +176,6 @@ p {
 
 .aboutImageContainer {
   flex: 1;
-  /* Allow the image to take up remaining space */
   max-width: 55%;
   margin-left: 20px;
 }
@@ -199,7 +184,6 @@ p {
   border-radius: 5px;
 }
 
-/* Responsive styling for smaller screens */
 @media (max-width: 768px) {
   .about1 .about-inner {
     flex-direction: column;
@@ -240,11 +224,10 @@ p {
 }
 
 .animated-squares {
-  display: block; /* Make squares visible on larger screens */
+  display: block;
 }
 
 @media (max-width: 1024px) {
-  /* Hide the animated squares on medium and smaller screens */
   .animated-squares {
     display: none;
   }
@@ -252,19 +235,18 @@ p {
 
 .animated-squares .square {
   position: absolute;
-  background: transparent; /* Transparent background */
-  border: 2px solid transparent; /* Transparent border to allow gradient */
+  background: transparent;
+  border: 2px solid transparent;
   border-image: linear-gradient(
     45deg,
     rgba(20, 134, 255, 0.7),
-    rgba(255, 20, 147, 0.7)
-  ); /* Gradient border */
-  border-image-slice: 1; /* Ensure the gradient is applied to the entire border */
+    rgba(137, 20, 255, 0.7)
+  );
+  border-image-slice: 1;
   z-index: 1;
-  animation: float 10s infinite ease-in-out; /* Speed up animation (from 30s to 10s) */
+  animation: float 10s infinite ease-in-out;
 }
 
-/* Specific positions and sizes for the squares */
 .animated-squares .square:nth-child(1) {
   top: 10%;
   left: 8%;
@@ -347,5 +329,88 @@ p {
   border: 0 solid transparent;
   border-radius: 16px;
   animation: border-fill 2s linear infinite;
-  pointer-events: none; /* Prevents pseudo-element from interfering with interactions */
+  pointer-events: none;
+}
+
+.card-container {
+  position: relative;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-container::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 15px;
+  background-size: 200% 200%;
+  animation: gradient-border 3s linear infinite;
+  z-index: -1;
+}
+
+.card-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-container img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-container .p-4 {
+  padding: 1.25rem;
+  background-color: #f9fafb;
+  transition: background-color 0.3s ease;
+}
+
+.card-container .p-4:hover {
+  background-color: #e5e7eb;
+}
+
+.card-container h3 {
+  font-size: 1.25rem;
+  color: #1f2937;
+}
+
+.card-container p {
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.card-container a {
+  display: inline-block;
+  background-color: #1e90ff;
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 25px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.875rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card-container a:hover {
+  background-color: #ff1493;
+  transform: translateY(-3px);
+}
+
+@keyframes gradient-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

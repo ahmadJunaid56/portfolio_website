@@ -1,10 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-
 const ScrollToTop = () => {
   const [scrollActive, setScrollActive] = useState(false);
-
-  // Scroll behavior
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY >= 50) {
@@ -13,23 +10,26 @@ const ScrollToTop = () => {
         setScrollActive(false);
       }
     };
-
     window.addEventListener("scroll", handleScroll);
-
-    // Cleanup event listener
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div
       id="scrollUp"
       title="Scroll To Top"
-      className={`fixed scroll right-8 bottom-12 h-14 w-14 rounded-full text-center cursor-pointer z-50 bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg transform transition-all duration-300 ease-in-out ${
+      className={`fixed right-8 bottom-12 h-14 w-14 rounded-full text-center cursor-pointer z-50 bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg transform transition-all duration-300 ease-in-out ${
         scrollActive ? "block" : "hidden"
       } hover:scale-110`}
+      onClick={scrollToTop}
     >
       <a href="#home" className="flex items-center justify-center h-full">
-        {/* Updated Arrow Icon */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

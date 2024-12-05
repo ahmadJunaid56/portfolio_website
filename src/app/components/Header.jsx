@@ -1,8 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("#home");
@@ -10,22 +9,43 @@ export default function Navbar() {
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
-
   const handleSetActiveLink = (link) => {
     setActiveLink(link);
     setIsOpen(false);
   };
+  useEffect(() => {
+    const sections = document.querySelectorAll("section"); 
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveLink(`#${entry.target.id}`);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+    if (window.location.hash === "" || window.location.hash === "#") {
+      setActiveLink("#home");
+    }
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section id="home" className="header_wrapper px-10 pb-4 bg-gray-50">
-      <nav className="w-full py-2 text-black">
+    <section id="home" className="header_wrapper px-10 pb-4 sticky top-0 z-50 bg-gray-50">
+      <nav className="w-full text-black">
         <div className="container mx-auto flex justify-between items-center">
-          {/* Logo */}
-          <a href="#home" className="text-lg lg:text-3xl font-semibold">
-            Portfolio
-          </a>
+          <div
+            className="h-16 w-64 bg-no-repeat bg-contain"
+            style={{
+              backgroundImage: "url('/ahmad.png')",
+            }}
+          >
+          </div>
 
-          {/* Toggle button for small screens */}
           <button
             className="text-black lg:hidden"
             onClick={toggleNavbar}
@@ -34,33 +54,37 @@ export default function Navbar() {
             <FontAwesomeIcon icon={faBars} size="xl" />
           </button>
 
-          {/* Links - Visible on larger screens */}
           <div className="hidden lg:flex flex-grow justify-center">
             <ul className="flex flex-row space-x-6">
-              {["#home", "#about", "#services", "#skills", "#projects", "#contact"].map(
-                (link, index) => (
-                  <li key={index}>
-                    <a
-                      href={link}
-                      className={`text-lg pb-2 ${
-                        activeLink === link
-                          ? "border-b-2 border-blue-500 text-blue-500"
-                          : "border-b-2 border-transparent"
-                      } text-black hover:border-blue-500 hover:text-blue-500 transition duration-300`}
-                      onClick={() => handleSetActiveLink(link)}
-                    >
-                      {link.slice(1).charAt(0).toUpperCase() + link.slice(2)}
-                    </a>
-                  </li>
-                )
-              )}
+              {[
+                "#home",
+                "#about",
+                "#services",
+                "#skills",
+                "#projects",
+                "#blogs",
+                "#contact",
+              ].map((link, index) => (
+                <li key={index}>
+                  <a
+                    href={link}
+                    className={`text-lg pb-2 ${
+                      activeLink === link
+                        ? "border-b-2 border-blue-500 text-blue-500"
+                        : "border-b-2 border-transparent"
+                    } text-black hover:border-blue-500 hover:text-blue-500 transition duration-300`}
+                    onClick={() => handleSetActiveLink(link)}
+                  >
+                    {link.slice(1).charAt(0).toUpperCase() + link.slice(2)}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Download CV Button */}
           <div className="hidden lg:block">
             <a
-              href="/path/to/your/cv.pdf"
+              href="/Profile.pdf"
               className="text-base font-semibold py-1 px-3 border-2 bg-transparent border-gradient bg-gradient-to-r from-blue-500 to-pink-500 text-transparent bg-clip-text hover:bg-gradient-to-r hover:from-blue-500 hover:to-pink-500 hover:text-pink-400 transition-all duration-300 ease-in-out"
               download
             >
@@ -69,7 +93,6 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Popup for small screens */}
         {isOpen && (
           <div className="fixed inset-0 bg-white bg-opacity-70 flex justify-center items-center z-50">
             <div className="bg-gray-50 w-full h-full text-center p-8 rounded-lg flex flex-col justify-center">
@@ -82,26 +105,32 @@ export default function Navbar() {
               </button>
 
               <ul className="flex flex-col space-y-6">
-                {["#home", "#about", "#services", "#skills", "#projects", "#contact"].map(
-                  (link, index) => (
-                    <li key={index}>
-                      <a
-                        href={link}
-                        className={`text-base font-normal ${
-                          activeLink === link
-                            ? "border-b-2 border-blue-500 text-blue-500"
-                            : "border-b-2 border-transparent"
-                        } text-black hover:border-blue-500 hover:text-blue-500 transition duration-300`}
-                        onClick={() => handleSetActiveLink(link)}
-                      >
-                        {link.slice(1).charAt(0).toUpperCase() + link.slice(2)}
-                      </a>
-                    </li>
-                  )
-                )}
+                {[
+                  "#home",
+                  "#about",
+                  "#services",
+                  "#skills",
+                  "#projects",
+                  "#blogs",
+                  "#contact",
+                ].map((link, index) => (
+                  <li key={index}>
+                    <a
+                      href={link}
+                      className={`text-base font-normal ${
+                        activeLink === link
+                          ? "border-b-2 border-blue-500 text-blue-500"
+                          : "border-b-2 border-transparent"
+                      } text-black hover:border-blue-500 hover:text-blue-500 transition duration-300`}
+                      onClick={() => handleSetActiveLink(link)}
+                    >
+                      {link.slice(1).charAt(0).toUpperCase() + link.slice(2)}
+                    </a>
+                  </li>
+                ))}
                 <li>
                   <a
-                    href="/path/to/your/cv.pdf"
+                    href="/Profile.pdf"
                     className="text-sm font-semibold py-2 px-4 rounded-lg border-2 bg-transparent border-gradient bg-gradient-to-r from-blue-500 to-pink-500 text-transparent bg-clip-text hover:bg-gradient-to-r hover:from-blue-500 hover:to-pink-500 hover:text-white transition-all duration-300 ease-in-out"
                     download
                   >

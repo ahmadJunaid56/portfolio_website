@@ -14,48 +14,45 @@ const skills = [
   { name: "React JS", imageSrc: "/science.png" },
   { name: "Next JS", imageSrc: "/next-js.png" },
 ];
-
 const MySkills = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
+    AOS.init({ duration: 1000, mirror: true });
   }, []);
-
   return (
-    <section className="py-4" id="skills">
-      <div className="max-w-7xl mx-4 px-4 sm:px-6 lg:px-8 text-center">
+    <section className="py-12 bg-gray-50" id="skills">
+      <div className="max-w-[100%] mx-4 px-4 sm:px-6 lg:px-8 text-center">
         <h2
           className="text-black text-center text-5xl font-semibold mb-12"
           data-aos="fade-down"
         >
           MY{" "}
           <span
-            className="text-gradient text-3xl uppercase lg:text-6xl font-semibold"
+            className="text-gradient text-4xl Capitalize lg:text-6xl font-semibold"
             style={{
-              backgroundImage: "linear-gradient(45deg, #1E90FF, #FF1493)", // Gradient from blue to pink
-              WebkitBackgroundClip: "text", // For Safari
+              backgroundImage: "linear-gradient(45deg, #1E90FF, #FF1493)",
+              WebkitBackgroundClip: "text",
               color: "transparent",
             }}
           >
             Skills
           </span>
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-16">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
           {skills.map((skill, index) => {
-            // Decide animation based on row
-            const isSecondRow = index >= 4; // Check if the skill is in the second row
-            const aosAnimation = isSecondRow ? "zoom-in-right" : "zoom-in-left"; // Assign animation
+            const isSecondRow = index >= 4;
+            const aosAnimation = isSecondRow ? "zoom-in-right" : "zoom-in-left";
 
             return (
               <div
                 key={index}
                 className="flex flex-col items-center"
                 data-aos={aosAnimation}
-                data-aos-delay={index * 100} // Adds a delay for each item
+                data-aos-delay={index * 100}
               >
                 <div
                   className="p-4 border-2 rounded-lg flex items-center justify-center h-40 w-40"
                   style={{
-                    borderImage: "linear-gradient(45deg, #1E90FF, #FF1493) 1", // Gradient border
+                    borderImage: "linear-gradient(45deg, #1E90FF, #FF1493) 1",
                   }}
                 >
                   <Image
