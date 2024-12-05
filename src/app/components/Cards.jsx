@@ -3,9 +3,13 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-// Custom Image component
+// Custom Image component using div as a background
 const Image = ({ src, alt, className }) => (
-  <img src={src} alt={alt} className={className} />
+  <div
+    className={`${className} bg-cover bg-center`}
+    style={{ backgroundImage: `url(${src})` }}
+    alt={alt}
+  ></div>
 );
 
 const CardSection = () => {
@@ -17,7 +21,7 @@ const CardSection = () => {
     {
       title: "Responsive Design",
       description:
-        "Learn to use modern CSS frameworks and techniques to make your site looks perfect on desktops, tablets, and mobile phones.",
+        "Learn to use modern CSS frameworks and techniques to make your site look perfect on desktops, tablets, and mobile phones.",
       image: "/design.jpg",
       aos: "slide-left",
       link: "https://micrologicx.net/web-development/introduction-to-css",
