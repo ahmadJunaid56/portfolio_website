@@ -3,10 +3,16 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+// Custom Image component
+const Image = ({ src, alt, className }) => (
+  <img src={src} alt={alt} className={className} />
+);
+
 const CardSection = () => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
+
   const cards = [
     {
       title: "Responsive Design",
@@ -36,7 +42,7 @@ const CardSection = () => {
 
   return (
     <div id="blogs">
-      <div className=" pt-4 container mx-auto px-6 md:px-12">
+      <div className="pt-4 container mx-auto px-6 md:px-12">
         <h2 className="text-center text-5xl font-semibold pb-10">
           MY{" "}
           <span
@@ -66,7 +72,7 @@ const Card = ({ card, delay }) => (
     data-aos={card.aos}
     data-aos-delay={delay}
   >
-    <img src={card.image} alt={card.title} className="w-full h-48" />
+    <Image src={card.image} alt={card.title} className="w-full h-48" />
     <div className="p-4 text-justify bg-gray-100">
       <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
       <p className="text-gray-600">{card.description}</p>

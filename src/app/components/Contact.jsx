@@ -41,7 +41,7 @@ const Contact = () => {
     >
       <div className="container mx-auto max-w-screen-lg">
         <h2 className=" pt-10 text-center text-5xl font-semibold pb-20">
-          LET’S{" "}
+          LETS{" "}
           <span
             className="text-gradient Capitalize text-4xl lg:text-6xl font-semibold"
             style={{
@@ -136,7 +136,7 @@ const Contact = () => {
               className="space-y-4"
             >
               <p className="text-gray-600 mb-4 text-center">
-                Fill out the form below, and I’ll get back to you as soon as
+                Fill out the form below, and I will get back to you as soon as
                 possible!
               </p>
               <div className="space-y-2">
@@ -145,7 +145,7 @@ const Contact = () => {
                     htmlFor="name"
                     className="block text-lg font-medium text-gray-700 mb-2"
                   >
-                    What’s your name?
+                    Whats your name?
                   </label>
                   <input
                     type="text"

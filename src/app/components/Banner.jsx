@@ -73,7 +73,7 @@ export default function MainPage() {
             </h3>
             <p className="mt-5 text-lg text-justify mx-2 lg:mx-0">
               Passionate about designing and developing digital solutions that
-              resonate. Let's collaborate to create impactful experiences that
+              resonate. Lets collaborate to create impactful experiences that
               inspire and connect.
             </p>
             <div className="social_links flex justify-center md:justify-start mt-8 space-x-6">
