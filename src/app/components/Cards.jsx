@@ -45,7 +45,7 @@ const CardSection = () => {
   ];
 
   return (
-    <div id="blogs">
+    <section id="blogs">
       <div className="pt-4 container mx-auto px-6 md:px-12">
         <h2 className="text-center text-5xl font-semibold pb-10">
           MY{" "}
@@ -66,7 +66,7 @@ const CardSection = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
