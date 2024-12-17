@@ -41,7 +41,7 @@ export default function Navbar() {
           <div
             className="h-16 w-64 bg-no-repeat bg-contain"
             style={{
-              backgroundImage: "url('/ahmad.png')",
+              backgroundImage: "url('/ahmad.webp')",
             }}
           >
           </div>

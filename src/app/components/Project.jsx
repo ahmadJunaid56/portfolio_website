@@ -3,12 +3,12 @@ import Image from "next/image";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import project1 from "/public/project (5).jpg";
-import project2 from "/public/project (4).jpg";
-import project3 from "/public/project (3).jpg";
-import project4 from "/public/project (2).jpg";
-import project5 from "/public/project (1).jpg";
-import project6 from "/public/project.jpg";
+import project1 from "/public/project (5).webp";
+import project2 from "/public/project (4).webp";
+import project3 from "/public/project (3).webp";
+import project4 from "/public/project (2).webp";
+import project5 from "/public/project (1).webp";
+import project6 from "/public/project.webp";
 
 const ProjectCard = ({ image, title, link, animation }) => {
   return (

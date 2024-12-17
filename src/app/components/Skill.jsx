@@ -5,14 +5,14 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const skills = [
-  { name: "HTML5", imageSrc: "/html-5.png" },
-  { name: "JavaScript", imageSrc: "/java-script.png" },
-  { name: "Tailwind", imageSrc: "/tailwind-css.png" },
-  { name: "Bootstrap", imageSrc: "/bootstrap.png" },
-  { name: "CSS", imageSrc: "/cascading-style-sheets.png" },
-  { name: "Sass", imageSrc: "/sass.png" },
-  { name: "React JS", imageSrc: "/science.png" },
-  { name: "Next JS", imageSrc: "/next-js.png" },
+  { name: "HTML5", imageSrc: "/html-5.webp" },
+  { name: "JavaScript", imageSrc: "/java-script.webp" },
+  { name: "Tailwind", imageSrc: "/tailwind-css.webp" },
+  { name: "Bootstrap", imageSrc: "/bootstrap.webp" },
+  { name: "CSS", imageSrc: "/cascading-style-sheets.webp" },
+  { name: "Sass", imageSrc: "/sass.webp" },
+  { name: "React JS", imageSrc: "/science.webp" },
+  { name: "Next JS", imageSrc: "/next-js.webp" },
 ];
 const MySkills = () => {
   useEffect(() => {

@@ -14,7 +14,7 @@ const Image = ({ src, alt, className }) => (
 
 const CardSection = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000 });
+    AOS.init();
   }, []);
 
   const cards = [
@@ -22,7 +22,7 @@ const CardSection = () => {
       title: "Responsive Design",
       description:
         "Learn to use modern CSS frameworks and techniques to make your site look perfect on desktops, tablets, and mobile phones.",
-      image: "/design.jpg",
+      image: "/design.webp",
       aos: "slide-left",
       link: "https://micrologicx.net/web-development/introduction-to-css",
     },
@@ -30,7 +30,7 @@ const CardSection = () => {
       title: "JavaScript Fundamentals",
       description:
         "Explore core concepts, syntax, and create interactive, dynamic user experiences that bring your websites to life.",
-      image: "/masterjs.jpg",
+      image: "/masterjs.webp",
       aos: "fade-up",
       link: "https://micrologicx.net/web-development/mastering-javascript-basics-a-beginner-s-guide-to-core-concepts",
     },
@@ -38,7 +38,7 @@ const CardSection = () => {
       title: "Next.js Framework",
       description:
         "Dive into server-side rendering, static site generation, and advanced React concepts to elevate your development skills.",
-      image: "/nextjs.jpg",
+      image: "/nextjs.webp",
       aos: "slide-right",
       link: "https://nextjs.org/docs",
     },

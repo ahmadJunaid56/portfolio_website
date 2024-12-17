@@ -8,7 +8,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { useEffect, useState, useMemo } from "react";
 import Image from "next/image";
-import portfolio from "/public/portfolio-image.png";
+import portfolio from "/public/portfolio-image.webp";
 
 export default function MainPage() {
   const [currentRole, setCurrentRole] = useState("");
@@ -111,6 +111,7 @@ export default function MainPage() {
               alt="Ahmad Junaid Profile Picture"
               width={340}
               height={340}
+              loading="lazy"
               className="rounded-full profile z-10"
             />
           </div>

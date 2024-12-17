@@ -57,12 +57,12 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="p-6 bg-white rounded-lg" data-aos="fade-right">
             <h3 className="text-2xl font-semibold text-gray-800 mb-6">
-              Let’s Chat!
+              Lets Chat!
             </h3>
             <p className="text-gray-600 text-base text-justify mb-6">
               Whether you want to collaborate on an exciting project, need some
-              advice, or just want to say hello, I’d love to hear from you.
-              Here’s how you can reach me:
+              advice, or just want to say hello, I would love to hear from you.
+              Here how you can reach me:
             </p>
             <ul className="space-y-4 text-gray-800">
               <li>
@@ -115,7 +115,7 @@ const Contact = () => {
                   className="flex items-center hover:text-blue-600 transition-colors"
                 >
                   <FontAwesomeIcon icon={faEnvelope} className="mr-2 text-xl" />{" "}
-                  Email: ahmadjunaid4210@gmail.com
+                  Email: stackmaster6648@gmail.com
                 </a>
               </li>
               <li>
