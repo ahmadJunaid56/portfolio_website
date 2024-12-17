@@ -20,7 +20,6 @@ const Contact = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 1500,
       mirror: true,
     });
   }, []);
@@ -33,9 +32,33 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const submitForm = async (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
+
+    const formData = {
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert("Form submitted successfully");
+      } else {
+        alert("Error submitting form");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Error submitting form");
+    }
   };
 
   return (
@@ -143,9 +166,7 @@ const Contact = () => {
           >
             <form
               id="contact-form"
-              action={`mailto:stackmaster6648@gmail.com?subject=New%20Contact%20Form%20Submission&body=Name:%20${formData.name}%0D%0AEmail:%20${formData.email}%0D%0AMessage:%20${formData.message}`}
-              method="POST"
-              encType="text/plain"
+              onSubmit={submitForm} // Updated onSubmit handler
               className="space-y-4"
             >
               <p className="text-gray-600 mb-4 text-center">
@@ -210,7 +231,7 @@ const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-blue-400 text-white py-3 rounded-lg text-lg hover:bg-blue-500 transition-all duration-300"
+                className="w-full bg-blue-600 text-white py-3 rounded-lg text-lg hover:bg-blue-700 transition-all duration-300"
               >
                 Send Your Message
               </button>
