@@ -33,42 +33,17 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-  
-    const formData = {
-      name: formData.name,
-      email: formData.email,
-      message: formData.message,
-    };
-  
-    try {
-      // Send form data to the backend API
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-  
-      const result = await response.json();
-  
-      if (response.ok) {
-        alert('Message sent successfully! View count: ' + result.viewerCount);
-        setFormData({ name: '', email: '', message: '' }); // Clear form
-      } else {
-        alert('Failed to send message. Please try again later.');
-      }
-    } catch (error) {
-      console.error('Error sending email:', error);
-      alert('Failed to send message. Please try again later.');
-    }
+    console.log("Form Data Submitted:", formData);
   };
-  
 
   return (
-    <section id="contact" className="pb-32 mt-20 px-4 lg:px-16 bg-gray-50" data-aos="fade-up">
+    <section
+      id="contact"
+      className="pb-32 mt-20 px-4 lg:px-16 bg-gray-50"
+      data-aos="fade-up"
+    >
       <div className="container mx-auto max-w-screen-lg">
         <h2 className=" pt-10 text-center text-5xl font-semibold pb-20">
           LETS{" "}
@@ -86,7 +61,9 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="p-6 bg-white rounded-lg" data-aos="fade-right">
-            <h3 className="text-2xl font-semibold text-gray-800 mb-6">Lets Chat!</h3>
+            <h3 className="text-2xl font-semibold text-gray-800 mb-6">
+              Lets Chat!
+            </h3>
             <p className="text-gray-600 text-base text-justify mb-6">
               Whether you want to collaborate on an exciting project, need some
               advice, or just want to say hello, I would love to hear from you.
@@ -94,46 +71,93 @@ const Contact = () => {
             </p>
             <ul className="space-y-4 text-gray-800">
               <li>
-                <a href="https://www.facebook.com/profile.php?id=100084148153799" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-blue-600 transition-colors">
-                  <FontAwesomeIcon icon={faFacebook} className="mr-2 text-xl" /> Facebook
+                <a
+                  href="https://www.facebook.com/profile.php?id=100084148153799"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center hover:text-blue-600 transition-colors"
+                >
+                  <FontAwesomeIcon icon={faFacebook} className="mr-2 text-xl" />{" "}
+                  Facebook
                 </a>
               </li>
               <li>
-                <a href="https://www.instagram.com/a.junaid10/" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-blue-600 transition-colors">
-                  <FontAwesomeIcon icon={faInstagram} className="mr-2 text-xl" /> Instagram
+                <a
+                  href="https://www.instagram.com/a.junaid10/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center hover:text-blue-600 transition-colors"
+                >
+                  <FontAwesomeIcon
+                    icon={faInstagram}
+                    className="mr-2 text-xl"
+                  />{" "}
+                  Instagram
                 </a>
               </li>
               <li>
-                <a href="www.linkedin.com/in/ahmad-junaid-071884251" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-blue-600 transition-colors">
-                  <FontAwesomeIcon icon={faLinkedin} className="mr-2 text-xl" /> LinkedIn
+                <a
+                  href="www.linkedin.com/in/ahmad-junaid-071884251"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center hover:text-blue-600 transition-colors"
+                >
+                  <FontAwesomeIcon icon={faLinkedin} className="mr-2 text-xl" />{" "}
+                  LinkedIn
                 </a>
               </li>
               <li>
-                <a href="https://github.com/ahmadJunaid56" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-blue-600 transition-colors">
-                  <FontAwesomeIcon icon={faGithub} className="mr-2 text-xl" /> GitHub
+                <a
+                  href="https://github.com/ahmadJunaid56"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center hover:text-blue-600 transition-colors"
+                >
+                  <FontAwesomeIcon icon={faGithub} className="mr-2 text-xl" />{" "}
+                  GitHub
                 </a>
               </li>
               <li>
-                <a href="mailto:stackmaster6648@gmail.com" className="flex items-center hover:text-blue-600 transition-colors">
-                  <FontAwesomeIcon icon={faEnvelope} className="mr-2 text-xl" /> Email: stackmaster6648@gmail.com
+                <a
+                  href="mailto:stackmaster6648@gmail.com"
+                  className="flex items-center hover:text-blue-600 transition-colors"
+                >
+                  <FontAwesomeIcon icon={faEnvelope} className="mr-2 text-xl" />{" "}
+                  Email: stackmaster6648@gmail.com
                 </a>
               </li>
               <li>
-                <a href="tel:+923036648666" className="flex items-center hover:text-blue-600 transition-colors">
-                  <FontAwesomeIcon icon={faPhone} className="mr-2 text-xl" /> Phone: +92 (303) 6648-666
+                <a
+                  href="tel:+923036648666"
+                  className="flex items-center hover:text-blue-600 transition-colors"
+                >
+                  <FontAwesomeIcon icon={faPhone} className="mr-2 text-xl" />
+                  Phone: +92 (303) 6648-666
                 </a>
               </li>
             </ul>
           </div>
-          <div className="p-8 bg-white rounded-lg shadow-lg" data-aos="zoom-in-left">
-            <form id="contact-form" onSubmit={handleSubmit} className="space-y-4">
+          <div
+            className="p-8 bg-white rounded-lg shadow-lg"
+            data-aos="zoom-in-left"
+          >
+            <form
+              id="contact-form"
+              action={`mailto:stackmaster6648@gmail.com?subject=New%20Contact%20Form%20Submission&body=Name:%20${formData.name}%0D%0AEmail:%20${formData.email}%0D%0AMessage:%20${formData.message}`}
+              method="POST"
+              encType="text/plain"
+              className="space-y-4"
+            >
               <p className="text-gray-600 mb-4 text-center">
                 Fill out the form below, and I will get back to you as soon as
                 possible!
               </p>
               <div className="space-y-2">
                 <div>
-                  <label htmlFor="name" className="block text-lg font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-lg font-medium text-gray-700 mb-2"
+                  >
                     Whats your name?
                   </label>
                   <input
@@ -148,7 +172,10 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-lg font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-lg font-medium text-gray-700 mb-2"
+                  >
                     Your email address:
                   </label>
                   <input
@@ -163,7 +190,10 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-lg font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-lg font-medium text-gray-700 mb-2"
+                  >
                     How can I help you?
                   </label>
                   <textarea
