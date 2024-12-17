@@ -47,7 +47,7 @@ export default function MainPage() {
   }, [charIndex, isDeleting, index, roles]);
 
   return (
-    <section id="home" className="main_page py-16 relative overflow-hidden bg-gray-50">
+    <section id="home" className="main_page py-16 relative overflow-hidden bg-slate-100">
       <div className="animated-squares absolute inset-0 pointer-events-none">
         {[...Array(10)].map((_, i) => (
           <div key={i} className={`square square-${i + 1}`}></div>
@@ -111,7 +111,7 @@ export default function MainPage() {
               alt="Ahmad Junaid Profile Picture"
               width={340}
               height={340}
-              loading="lazy"
+              priority
               className="rounded-full profile z-10"
             />
           </div>

@@ -35,7 +35,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <section id="home" className="header_wrapper px-10 pb-4 sticky top-0 z-50 bg-gray-50">
+    <section id="home" className="header_wrapper px-10 sticky top-0 z-50 bg-slate-100">
       <nav className="w-full text-black">
         <div className="container mx-auto flex justify-between items-center">
           <div
@@ -70,9 +70,9 @@ export default function Navbar() {
                     href={link}
                     className={`text-lg pb-2 ${
                       activeLink === link
-                        ? "border-b-2 border-blue-500 text-blue-500"
+                        ? "border-b-2 border-blue-500 text-blue-700"
                         : "border-b-2 border-transparent"
-                    } text-black hover:border-blue-500 hover:text-blue-500 transition duration-300`}
+                    } text-black hover:border-blue-700 hover:text-blue-700 transition duration-300`}
                     onClick={() => handleSetActiveLink(link)}
                   >
                     {link.slice(1).charAt(0).toUpperCase() + link.slice(2)}
@@ -85,7 +85,7 @@ export default function Navbar() {
           <div className="hidden lg:block">
             <a
               href="/Profile.pdf"
-              className="text-base font-semibold py-1 px-3 border-2 bg-transparent border-gradient bg-gradient-to-r from-blue-500 to-pink-500 text-transparent bg-clip-text hover:bg-gradient-to-r hover:from-blue-500 hover:to-pink-500 hover:text-pink-400 transition-all duration-300 ease-in-out"
+              className="text-base font-semibold py-1 px-3 border-2 bg-transparent border-gradient bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-pink-600 transition-all duration-300 ease-in-out"
               download
             >
               Download CV
@@ -95,7 +95,7 @@ export default function Navbar() {
 
         {isOpen && (
           <div className="fixed inset-0 bg-white bg-opacity-70 flex justify-center items-center z-50">
-            <div className="bg-gray-50 w-full h-full text-center p-8 rounded-lg flex flex-col justify-center">
+            <div className="bg-gray-100 w-full h-full text-center p-8 rounded-lg flex flex-col justify-center">
               <button
                 className="absolute top-5 right-5 text-black"
                 onClick={toggleNavbar}
@@ -119,9 +119,9 @@ export default function Navbar() {
                       href={link}
                       className={`text-base font-normal ${
                         activeLink === link
-                          ? "border-b-2 border-blue-500 text-blue-500"
+                          ? "border-b-2 border-blue-700 text-blue-700"
                           : "border-b-2 border-transparent"
-                      } text-black hover:border-blue-500 hover:text-blue-500 transition duration-300`}
+                      } text-black hover:border-blue-700 hover:text-blue-700 transition duration-300`}
                       onClick={() => handleSetActiveLink(link)}
                     >
                       {link.slice(1).charAt(0).toUpperCase() + link.slice(2)}
@@ -131,7 +131,7 @@ export default function Navbar() {
                 <li>
                   <a
                     href="/Profile.pdf"
-                    className="text-sm font-semibold py-2 px-4 rounded-lg border-2 bg-transparent border-gradient bg-gradient-to-r from-blue-500 to-pink-500 text-transparent bg-clip-text hover:bg-gradient-to-r hover:from-blue-500 hover:to-pink-500 hover:text-white transition-all duration-300 ease-in-out"
+                    className="text-sm font-semibold py-2 px-4 rounded-lg border-2 bg-transparent border-gradient bg-gradient-to-r from-blue-700 to-pink-700 text-transparent bg-clip-text hover:bg-gradient-to-r hover:from-blue-700 hover:to-pink-700 hover:text-white transition-all duration-300 ease-in-out"
                     download
                   >
                     Download CV

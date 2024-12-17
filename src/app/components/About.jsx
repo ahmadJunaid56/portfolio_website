@@ -30,7 +30,7 @@ export default function Border() {
           <a href="https://github.com/ahmadJunaid56"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-white bg-blue-400 hover:bg-blue-600 transition-colors">
+                  className="flex items-center text-white bg-blue-600 hover:bg-blue-700 transition-colors">
             Explore More
           </a>
         </div>
