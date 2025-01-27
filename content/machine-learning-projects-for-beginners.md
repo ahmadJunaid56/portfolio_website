@@ -2,9 +2,20 @@
 title: Projects of ML for Beginners
 description: Explore beginner-friendly machine learning projects to kickstart your journey in the field of AI and data science.
 slug: machine-learning-projects-for-beginners
-date: 02/03/2025
-author: Harry
+date: 02/01/2025
+author: Ahmad
 image: /machine-learning.webp
+faqs:
+  - question: "What is the best machine learning project for beginners?"
+    answer: "The Iris Flower Classification project is a great starting point for beginners, as it involves a simple classification problem and is widely used in machine learning tutorials."
+  - question: "Do I need to know programming to start machine learning?"
+    answer: "Yes, basic programming knowledge, particularly in Python, is essential for working with machine learning libraries and algorithms."
+  - question: "How long does it take to complete a beginner machine learning project?"
+    answer: "It typically takes a few weeks to a couple of months to complete a beginner machine learning project, depending on the complexity and your prior knowledge."
+  - question: "What are the essential libraries for machine learning?"
+    answer: "Essential libraries for machine learning include Python, NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn, TensorFlow, and PyTorch."
+  - question: "How can I improve my machine learning skills?"
+    answer: "Consistent practice, working on projects, and studying algorithms are key to improving your machine learning skills. Participating in Kaggle competitions is also a great way to challenge yourself."
 ---
 
 Are you new to machine learning and looking for projects to build your skills? This guide introduces beginner-friendly machine learning projects that will help you understand core concepts and develop practical experience.

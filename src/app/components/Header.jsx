@@ -24,7 +24,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="header_wrapper px-4 lg:px-12 z-10 py-4 bg-white lg:bg-background/75 border-b sticky top-0 dark:bg-gray-900/90 lg:backdrop-blur">
+    <header className="header_wrapper px-4 lg:px-12 z-20 py-4 bg-white lg:bg-background/50 border-b sticky top-0 dark:bg-gray-900/90 lg:backdrop-blur">
       <nav className="w-full">
         <div className="flex justify-between items-center ">
           {/* Brand Name */}

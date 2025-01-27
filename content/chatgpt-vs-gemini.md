@@ -2,9 +2,18 @@
 title: ChatGPT vs. Gemini
 description: This is JavaScript tutorial and this is for learning JavaScript
 slug: chatgpt-vs-gemini
-date: 08/02/2025
-author: Harry
+date: 18/01/2025
+author: Ahmad
 image: /chatgpt.webp
+faqs:
+  - question: "What is the difference between ChatGPT and Gemini?"
+    answer: "ChatGPT is based on OpenAI's GPT-4 architecture, while Gemini is developed by Google and integrates with Google's ecosystem."
+  - question: "Which one is more customizable?"
+    answer: "Both are customizable, but ChatGPT offers a broader range of use cases and fine-tuning options."
+  - question: "Can I integrate Gemini with Google products?"
+    answer: "Yes, Gemini is designed to seamlessly integrate with Google’s services like Google Assistant and Google Docs."
+  - question: "Which AI is better for customer support?"
+    answer: "Both ChatGPT and Gemini can be used for customer support, but ChatGPT has a broader range of integration options."
 ---
 
 # ChatGPT vs. Gemini: A Comparative Analysis

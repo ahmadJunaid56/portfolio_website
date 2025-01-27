@@ -2,11 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPhone,
-  faEnvelope,
-  faAddressCard,
-} from "@fortawesome/free-solid-svg-icons";
+import { faPhone, faEnvelope, faAddressCard } from "@fortawesome/free-solid-svg-icons";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -29,7 +25,19 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Submitting...");
-  
+
+    // Client-side validation
+    if (!/^\d{10,15}$/.test(formData.phone)) {
+      setStatus("Phone number must be 10-15 digits long");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setStatus("Invalid email format");
+      return;
+    }
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -38,23 +46,20 @@ export default function Contact() {
         },
         body: JSON.stringify(formData),
       });
-  
+
       const result = await response.json();
-      console.log(result);  // Log the response for debugging
-  
-      if (response.status === 200) {
+
+      if (response.status === 201) {
         setStatus("Form submitted successfully!");
         setFormData({ name: "", email: "", phone: "", message: "" }); // Reset form
       } else {
-        setStatus(result.message || "Error submitting form");
+        setStatus(result.error || "Error submitting form");
       }
     } catch (error) {
-      console.error("Error:", error);  // Log any other errors
+      console.error("Error:", error);
       setStatus("Failed to submit the form. Please try again.");
     }
   };
-  
-  
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-8 py-16 px-6 lg:px-12 border-t-2 bg-slate-100 dark:bg-gray-800">
@@ -64,28 +69,16 @@ export default function Contact() {
           Quick links
         </h2>
         <nav className="flex flex-col space-y-6">
-          <Link
-            href="/disclaimer"
-            className="font-medium transition duration-300 hover:underline text-gray-700 dark:text-gray-300"
-          >
+          <Link href="/disclaimer" className="font-medium transition duration-300 hover:underline text-gray-700 dark:text-gray-300">
             Disclaimer
           </Link>
-          <Link
-            href="/privacypolicy"
-            className="font-medium transition duration-300 hover:underline text-gray-700 dark:text-gray-300"
-          >
+          <Link href="/privacypolicy" className="font-medium transition duration-300 hover:underline text-gray-700 dark:text-gray-300">
             Privacy Policy
           </Link>
-          <Link
-            href="/about"
-            className="font-medium transition duration-300 hover:underline text-gray-700 dark:text-gray-300"
-          >
+          <Link href="/about" className="font-medium transition duration-300 hover:underline text-gray-700 dark:text-gray-300">
             About
           </Link>
-          <Link
-            href="/contact"
-            className="font-medium transition duration-300 hover:underline text-gray-700 dark:text-gray-300"
-          >
+          <Link href="/contact" className="font-medium transition duration-300 hover:underline text-gray-700 dark:text-gray-300">
             Contact
           </Link>
         </nav>
@@ -97,31 +90,16 @@ export default function Contact() {
           Chat me!
         </h2>
         <div className="flex items-center mb-6">
-          <FontAwesomeIcon
-            icon={faPhone}
-            className="mr-2 text-gray-800 dark:text-white"
-          />
-          <p className="text-base text-gray-700 dark:text-gray-300">
-            +92 303-6648666
-          </p>
+          <FontAwesomeIcon icon={faPhone} className="mr-2 text-gray-800 dark:text-white" />
+          <p className="text-base text-gray-700 dark:text-gray-300">+92 303-6648666</p>
         </div>
         <div className="flex items-center mb-6">
-          <FontAwesomeIcon
-            icon={faEnvelope}
-            className="mr-2 text-gray-800 dark:text-white"
-          />
-          <p className="text-base text-gray-700 dark:text-gray-300">
-            stackmaster6648@gmail.com
-          </p>
+          <FontAwesomeIcon icon={faEnvelope} className="mr-2 text-gray-800 dark:text-white" />
+          <p className="text-base text-gray-700 dark:text-gray-300">stackmaster6648@gmail.com</p>
         </div>
         <div className="flex items-center mb-6">
-          <FontAwesomeIcon
-            icon={faAddressCard}
-            className="mr-2 text-gray-800 dark:text-white"
-          />
-          <p className="text-base text-gray-700 dark:text-gray-300">
-            Madina Town Faisalabad, Pakistan
-          </p>
+          <FontAwesomeIcon icon={faAddressCard} className="mr-2 text-gray-800 dark:text-white" />
+          <p className="text-base text-gray-700 dark:text-gray-300">Madina Town Faisalabad, Pakistan</p>
         </div>
       </div>
 
@@ -181,7 +159,10 @@ export default function Contact() {
           <div className="mt-4 text-center md:text-left">
             <button
               type="submit"
-              className="relative outline px-6 py-2 rounded-lg font-semibold bg-transparent transition-all duration-500 ease-in-out"
+              disabled={status === "Submitting..."}
+              className={`relative outline px-6 py-2 rounded-lg font-semibold transition-all duration-500 ease-in-out ${
+                status === "Submitting..." ? "bg-gray-400" : "bg-transparent"
+              }`}
             >
               Submit
               <span className="absolute top-1/2 right-3 transform -translate-y-1/2 opacity-0 hover:opacity-100 hover:translate-x-3 transition-all duration-500 ease-in-out">
@@ -190,7 +171,11 @@ export default function Contact() {
             </button>
           </div>
         </form>
-        {status && <p>{status}</p>}
+        {status && (
+          <p className={status.startsWith("Failed") ? "text-red-500" : "text-green-500"}>
+            {status}
+          </p>
+        )}
       </div>
     </div>
   );

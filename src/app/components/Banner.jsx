@@ -58,7 +58,7 @@ export default function MainPage() {
           <div className="mt-5 text-center md:text-left">
             <h3 className="text-2xl font-medium">Hello, I am</h3>
             <h1 className="text-4xl lg:text-6xl">Ahmad Junaid</h1>
-            <h3 className="text-xl lg:text-2xl mt-3">
+            <h3 className="text-xl lg:text-2xl mt-2">
               I am a{" "}
               <span
                 className="text-gradient text-3xl font-semibold"
@@ -71,12 +71,12 @@ export default function MainPage() {
                 {currentRole}
               </span>
             </h3>
-            <p className="mt-5 text-lg text-justify mx-2 lg:mx-0">
+            <p className="mt-4 text-lg text-justify mx-2 lg:mx-0">
               Passionate about designing and developing digital solutions that
               resonate. Lets collaborate to create impactful experiences that
               inspire and connect.
             </p>
-            <div className="social_links flex justify-center md:justify-start mt-8 space-x-6">
+            <div className="social_links flex justify-center md:justify-start mt-4 space-x-6">
               {[
                 {
                   icon: faFacebookF,

@@ -1,42 +1,60 @@
-export default async function handler(req, res) {
-  console.log("Request received:", req.method); // Add logging here
-  if (req.method === "POST") {
-    const { name, email, phone, message } = req.body;
-    console.log("Form Data:", { name, email, phone, message }); // Log the form data
+import { PrismaClient } from '@prisma/client';
+import nodemailer from 'nodemailer';
+import 'dotenv/config'; // Make sure environment variables are loaded
 
+const prisma = new PrismaClient();
+
+// Create a Nodemailer transporter for email sending
+const transporter = nodemailer.createTransport({
+  service: 'gmail', // You can use other services like SendGrid or Mailgun
+  auth: {
+    user: process.env.EMAIL, // Access the email address from environment variables
+    pass: process.env.EMAIL_PASSWORD,  // Access the email password or app password from environment variables
+  },
+});
+
+export async function POST(req) {
+  try {
+    const { name, email, phone, message } = await req.json();
+
+    // Validate form fields
     if (!name || !email || !phone || !message) {
-      return res.status(400).json({ message: "All fields are required" });
+      return new Response(JSON.stringify({ error: "All fields are required" }), { status: 400 });
     }
 
+    // Save contact data to the database
+    const newContact = await prisma.contact.create({
+      data: { name, email, phone, message },
+    });
+
+    // Send email notification to your email address with the visitor's email as the sender
+    const mailOptions = {
+      from: email, // Set the visitor's email as the sender
+      to: process.env.EMAIL, // Your email address as the recipient
+      subject: 'New Contact Form Submission',
+      text: `You have a new contact form submission:
+      Name: ${name}
+      Email: ${email}
+      Phone: ${phone}
+      Message: ${message}`,
+    };
+
+    // Send the email
     try {
-      const transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: process.env.EMAIL,
-          pass: process.env.EMAIL_PASSWORD,
-        },
-      });
-
-      const mailOptions = {
-        from: process.env.EMAIL,
-        to: process.env.RECIPIENT_EMAIL,
-        subject: `New Contact Form Submission from ${name}`,
-        text: `
-          Name: ${name}
-          Email: ${email}
-          Phone: ${phone}
-          Message: ${message}
-        `,
-      };
-
       await transporter.sendMail(mailOptions);
-
-      return res.status(200).json({ message: "Email sent successfully!" });
+      console.log("Email sent successfully");
     } catch (error) {
       console.error("Error sending email:", error);
-      return res.status(500).json({ message: "Error sending email", error: error.message });
+      return new Response(JSON.stringify({ error: "Failed to send email" }), { status: 500 });
     }
-  } else {
-    return res.status(405).json({ message: "Method not allowed" });
+
+    // Disconnect Prisma client
+    await prisma.$disconnect();
+
+    // Return successful response
+    return new Response(JSON.stringify({ message: "Form submitted successfully", contact: newContact }), { status: 201 });
+  } catch (error) {
+    console.error(error);
+    return new Response(JSON.stringify({ error: "Failed to submit the form" }), { status: 500 });
   }
 }

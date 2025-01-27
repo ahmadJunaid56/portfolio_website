@@ -34,6 +34,8 @@ const page = () => {
             <Image
               src="/portfolio-image.webp"
               alt="Ahmad Junaid"
+              width={200}
+              height={200}
               className="rounded-full w-full h-96 object-cover mb-4 md:mb-0 md:mr-6"
             />
             <div>

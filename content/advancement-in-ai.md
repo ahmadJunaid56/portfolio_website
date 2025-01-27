@@ -2,9 +2,17 @@
 title: Advancement in the Field of AI
 description: Explore the latest advancements in artificial intelligence and how they are shaping the future.
 slug: advancement-in-ai
-date: 11/02/2025
-author: Harry
-image: https://images.pexels.com/photos/39284/macbook-apple-imac-computer-39284.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
+date: 21/01/2025
+author: Ahmad
+image: /ai.webp
+faqs:
+  - question: "What is AI?"
+    answer: "Artificial Intelligence (AI) refers to the simulation of human intelligence in machines that are programmed to think and learn."
+  - question: "How is AI used in healthcare?"
+    answer: "AI is used in healthcare for tasks like early disease detection, personalized treatment plans, and drug discovery."
+  - question: "What is Generative AI?"
+    answer: "Generative AI refers to AI systems that can create new content, such as images, text, or music, based on learned patterns."
+---
 ---
 
 # Advancements in the Field of AI

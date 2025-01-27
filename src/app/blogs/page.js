@@ -1,23 +1,26 @@
+// src/app/blogs/page.js
 import React from 'react';
-import fs from 'fs';
 import Image from "next/image";
-import matter from 'gray-matter';
 import Link from 'next/link';
-import Navbar from '../components/Header'
-import Contact from '../components/Contact'
-import Copyright from '../components/Copyright'
+import Navbar from '../components/Header';
+import Contact from '../components/Contact';
+import Copyright from '../components/Copyright';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
 
-function getBlogs() {
-  const dirContent = fs.readdirSync('content', 'utf-8'); // Reads the 'content' directory
-  return dirContent.map((file) => {
-    const fileContent = fs.readFileSync(`content/${file}`, 'utf-8'); // Reads each file
-    const { data } = matter(fileContent); // Parses front matter
-    return data; // Returns the metadata (title, date, etc.)
+// Fetching data directly in the component
+export default async function BlogPage() {
+  const dirPath = path.join(process.cwd(), 'content');
+  const files = fs.readdirSync(dirPath);
+
+  // Get blog data from each file
+  const blogs = files.map((file) => {
+    const filePath = path.join(dirPath, file);
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    const { data } = matter(fileContent); // Extract front matter
+    return { ...data, slug: file.replace('.md', '') }; // Add slug for linking
   });
-}
-
-export default function BlogPage() {
-  const blogs = getBlogs();
 
   return (
     <>
@@ -25,7 +28,7 @@ export default function BlogPage() {
       <div className="bg-black dark:bg-gray-900 text-center py-16">
         <h1 className="text-4xl font-bold text-white">My Latest Blogs</h1>
         <p className="text-xl text-white mt-4">
-        Insights and updates from my portfolio and tech adventures.
+          Insights and updates from my portfolio and tech adventures.
         </p>
       </div>
       <div className="py-8 px-4 lg:py-16 lg:px-12">
@@ -41,13 +44,13 @@ export default function BlogPage() {
                 src={blog.image}
                 alt={blog.title}
                 className="w-full h-48 object-cover"
+                width={500}
+                height={300}
               />
 
               {/* Blog Content */}
               <div className="p-6">
-                <h2 className="text-xl font-bold mb-2">
-                  {blog.title}
-                </h2>
+                <h2 className="text-xl font-bold mb-2">{blog.title}</h2>
                 <p className="mb-4">{blog.description}</p>
                 <div className="text-sm mb-4">
                   <span>By {blog.author}</span> |{' '}

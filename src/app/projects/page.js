@@ -24,7 +24,8 @@ const ProjectsPage = () => {
 
           {/* Project 1: Food Website */}
           <div className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
-            <Image src="/project (1).webp" alt="Food Website" className="w-full h-56 " />
+            <Image src="/project (1).webp" alt="Food Website" width={200}
+              height={200} className="w-full h-56 " />
             <div className="p-6">
               <h3 className="text-2xl font-semibold text-gray-800 dark:text-white">Food Website</h3>
               <p className="text-gray-700 dark:text-gray-300 mt-4">
@@ -40,7 +41,8 @@ const ProjectsPage = () => {
 
           {/* Project 2: E-Commerce Website */}
           <div className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
-            <Image src="/project (5).webp" alt="E-Commerce Website" className="w-full h-56 " />
+            <Image src="/project (5).webp" alt="E-Commerce Website" width={200}
+              height={200} className="w-full h-56 " />
             <div className="p-6">
               <h3 className="text-2xl font-semibold text-gray-800 dark:text-white">E-Commerce Website</h3>
               <p className="text-gray-700 dark:text-gray-300 mt-4">
@@ -56,7 +58,8 @@ const ProjectsPage = () => {
 
           {/* Project 3: Clinic Website */}
           <div className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
-            <Image src="/project (4).webp" alt="Clinic Website" className="w-full h-56 " />
+            <Image src="/project (4).webp" alt="Clinic Website" width={200}
+              height={200} className="w-full h-56 " />
             <div className="p-6">
               <h3 className="text-2xl font-semibold text-gray-800 dark:text-white">Clinic Website</h3>
               <p className="text-gray-700 dark:text-gray-300 mt-4">
@@ -72,7 +75,8 @@ const ProjectsPage = () => {
 
           {/* Project 4: Farm Website */}
           <div className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
-            <Image src="/project (3).webp" alt="Farm Website" className="w-full h-56 " />
+            <Image src="/project (3).webp" alt="Farm Website" width={200}
+              height={200} className="w-full h-56 " />
             <div className="p-6">
               <h3 className="text-2xl font-semibold text-gray-800 dark:text-white">Farm Website</h3>
               <p className="text-gray-700 dark:text-gray-300 mt-4">
@@ -88,7 +92,8 @@ const ProjectsPage = () => {
 
           {/* Project 5: Blog Website */}
           <div className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
-            <Image src="/project.webp" alt="Blog Website" className="w-full h-56 " />
+            <Image src="/project.webp" alt="Blog Website" width={200}
+              height={200} className="w-full h-56 " />
             <div className="p-6">
               <h3 className="text-2xl font-semibold text-gray-800 dark:text-white">Blog Website</h3>
               <p className="text-gray-700 dark:text-gray-300 mt-4">
@@ -104,7 +109,8 @@ const ProjectsPage = () => {
 
           {/* Project 6: Travel Website */}
           <div className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300">
-            <Image src="/project (6).webp" alt="Travel Website" className="w-full h-56 " />
+            <Image src="/project (6).webp" alt="Travel Website" width={200}
+              height={200} className="w-full h-56 " />
             <div className="p-6">
               <h3 className="text-2xl font-semibold text-gray-800 dark:text-white">Travel Website</h3>
               <p className="text-gray-700 dark:text-gray-300 mt-4">
