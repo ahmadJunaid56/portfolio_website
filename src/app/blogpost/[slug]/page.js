@@ -16,6 +16,7 @@ import Navbar from '../../components/Header';
 import Contact from '../../components/Contact';
 import Copyright from '../../components/Copyright';
 import FAQ from '../../components/FAQ'; // Import the FAQ component
+import Image from "next/image";
 
 export default async function Page({ params }) {
   // Await params to ensure it's resolved before use
@@ -60,7 +61,7 @@ export default async function Page({ params }) {
       <div className="py-4 lg:py-8 px-4 lg:px-12">
         {data.image && (
           <div className="mb-8">
-            <img
+            <Image
               src={data.image}
               alt={data.title}
               className="w-full h-96 rounded-lg shadow-lg"
