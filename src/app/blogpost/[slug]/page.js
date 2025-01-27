@@ -15,7 +15,7 @@ import { transformerCopyButton } from "@rehype-pretty/transformers";
 import Navbar from '../../components/Header';
 import Contact from '../../components/Contact';
 import Copyright from '../../components/Copyright';
-import FAQ from '../../components/FAQ'; // Import the FAQ component
+import FAQ from '../../components/FAQ';
 import Image from "next/image";
 
 export default async function Page({ params }) {
