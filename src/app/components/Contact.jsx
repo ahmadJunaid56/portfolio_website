@@ -40,16 +40,20 @@ export default function Contact() {
       });
   
       const result = await response.json();
+      console.log(result);  // Log the response for debugging
+  
       if (response.status === 200) {
         setStatus("Form submitted successfully!");
         setFormData({ name: "", email: "", phone: "", message: "" }); // Reset form
       } else {
         setStatus(result.message || "Error submitting form");
       }
-    } catch {
+    } catch (error) {
+      console.error("Error:", error);  // Log any other errors
       setStatus("Failed to submit the form. Please try again.");
     }
   };
+  
   
 
   return (
