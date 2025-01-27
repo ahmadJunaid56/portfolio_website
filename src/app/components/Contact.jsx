@@ -46,7 +46,7 @@ export default function Contact() {
       } else {
         setStatus(result.message || "Error submitting form");
       }
-    } catch (error) {
+    } catch {
       setStatus("Failed to submit the form. Please try again.");
     }
   };
