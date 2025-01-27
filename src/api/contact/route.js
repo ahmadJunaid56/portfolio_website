@@ -1,8 +1,8 @@
-import nodemailer from "nodemailer";
-
 export default async function handler(req, res) {
+  console.log("Request received:", req.method); // Add logging here
   if (req.method === "POST") {
     const { name, email, phone, message } = req.body;
+    console.log("Form Data:", { name, email, phone, message }); // Log the form data
 
     if (!name || !email || !phone || !message) {
       return res.status(400).json({ message: "All fields are required" });
@@ -13,7 +13,7 @@ export default async function handler(req, res) {
         service: "gmail",
         auth: {
           user: process.env.EMAIL,
-          pass: process.env.EMAIL_PASSWORD, // App password
+          pass: process.env.EMAIL_PASSWORD,
         },
       });
 
