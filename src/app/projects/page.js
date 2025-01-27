@@ -14,7 +14,7 @@ const ProjectsPage = () => {
       <div className="bg-black dark:bg-gray-900 text-center py-16">
         <h1 className="text-4xl font-bold text-white">My Projects</h1>
         <p className="text-xl text-white mt-4">
-          Check out some of the amazing projects I've worked on.
+          Check out some of the amazing projects I have worked on.
         </p>
       </div>
 
