@@ -1,147 +1,129 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { ModeToggle } from "./theme-btn";
+import Link from "next/link";
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("#home");
+  const pathname = usePathname();
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
-  const handleSetActiveLink = (link) => {
-    setActiveLink(link);
-    setIsOpen(false);
-  };
-  useEffect(() => {
-    const sections = document.querySelectorAll("section"); 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveLink(`#${entry.target.id}`);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
-    if (window.location.hash === "" || window.location.hash === "#") {
-      setActiveLink("#home");
-    }
-    return () => observer.disconnect();
-  }, []);
+
+  const links = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Projects", href: "/projects" },
+    { name: "Blogs", href: "/blogs" },
+    { name: "Contact", href: "/contact" },
+  ];
 
   return (
-    <section id="home" className="header_wrapper px-10 sticky top-0 z-50 bg-slate-100">
-      <nav className="w-full text-black">
-        <div className="container mx-auto flex justify-between items-center">
-          <div
-            className="h-16 w-64 bg-no-repeat bg-contain"
-            style={{
-              backgroundImage: "url('/ahmad.webp')",
-            }}
-          >
-          </div>
+    <header className="header_wrapper px-4 lg:px-12 z-10 py-4 bg-white lg:bg-background/75 border-b sticky top-0 dark:bg-gray-900/90 lg:backdrop-blur">
+      <nav className="w-full">
+        <div className="flex justify-between items-center ">
+          {/* Brand Name */}
+          <Link href="/">
+            <div className="text-3xl uppercase font-bold text-primary dark:text-white">
+              Ahmad
+            </div>
+          </Link>
 
+          {/* Mobile Menu Button */}
           <button
-            className="text-black lg:hidden"
+            className="lg:hidden"
             onClick={toggleNavbar}
             aria-label="Toggle navigation"
           >
-            <FontAwesomeIcon icon={faBars} size="xl" />
+            <FontAwesomeIcon
+              icon={isOpen ? faTimes : faBars}
+              size="xl"
+              className="text-primary dark:text-white"
+            />
           </button>
 
-          <div className="hidden lg:flex flex-grow justify-center">
-            <ul className="flex flex-row space-x-6">
-              {[
-                "#home",
-                "#about",
-                "#services",
-                "#skills",
-                "#projects",
-                "#blogs",
-                "#contact",
-              ].map((link, index) => (
-                <li key={index}>
-                  <a
-                    href={link}
-                    className={`text-lg pb-2 ${
-                      activeLink === link
-                        ? "border-b-2 border-blue-500 text-blue-700"
-                        : "border-b-2 border-transparent"
-                    } text-black hover:border-blue-700 hover:text-blue-700 transition duration-300`}
-                    onClick={() => handleSetActiveLink(link)}
-                  >
-                    {link.slice(1).charAt(0).toUpperCase() + link.slice(2)}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Desktop Navbar */}
+          <ul className="hidden lg:flex flex-row space-x-6">
+            {links.map((link, index) => (
+              <li key={index}>
+                <Link
+                  href={link.href}
+                  className={`text-lg pb-2 border-b-2 ${
+                    pathname === link.href || (pathname === "/" && link.href === "/")
+                      ? "border-primary text-primary dark:text-white"
+                      : "border-transparent hover:border-primary dark:hover:border-white"
+                  } transition duration-300`}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
 
-          <div className="hidden lg:block">
+          {/* Desktop Actions */}
+          <div className="hidden lg:flex gap-4">
             <a
               href="/Profile.pdf"
-              className="text-base font-semibold py-1 px-3 border-2 bg-transparent border-gradient bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-pink-600 transition-all duration-300 ease-in-out"
+              className="text-base font-semibold py-1 px-3 border-2 bg-transparent border-gradient bg-gradient-to-r from-blue-600 to-purple-600 text-transparent bg-clip-text hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-pink-600 transition-all duration-300"
               download
             >
               Download CV
             </a>
+            <ModeToggle />
           </div>
         </div>
 
+        {/* Mobile Navbar */}
         {isOpen && (
-          <div className="fixed inset-0 bg-white bg-opacity-70 flex justify-center items-center z-50">
-            <div className="bg-gray-100 w-full h-full text-center p-8 rounded-lg flex flex-col justify-center">
-              <button
-                className="absolute top-5 right-5 text-black"
-                onClick={toggleNavbar}
-                aria-label="Close navigation"
-              >
-                <FontAwesomeIcon icon={faTimes} size="lg" />
-              </button>
+          <div className="fixed inset-0 bg-white dark:bg-gray-900 dark:bg-opacity-90 flex flex-col justify-start items-center pt-16 z-50">
+            {/* Close Button */}
+            <button
+              className="absolute top-4 right-4 text-primary dark:text-white"
+              onClick={toggleNavbar}
+            >
+              <FontAwesomeIcon icon={faTimes} size="xl" />
+            </button>
 
-              <ul className="flex flex-col space-y-6">
-                {[
-                  "#home",
-                  "#about",
-                  "#services",
-                  "#skills",
-                  "#projects",
-                  "#blogs",
-                  "#contact",
-                ].map((link, index) => (
-                  <li key={index}>
-                    <a
-                      href={link}
-                      className={`text-base font-normal ${
-                        activeLink === link
-                          ? "border-b-2 border-blue-700 text-blue-700"
-                          : "border-b-2 border-transparent"
-                      } text-black hover:border-blue-700 hover:text-blue-700 transition duration-300`}
-                      onClick={() => handleSetActiveLink(link)}
-                    >
-                      {link.slice(1).charAt(0).toUpperCase() + link.slice(2)}
-                    </a>
-                  </li>
-                ))}
-                <li>
-                  <a
-                    href="/Profile.pdf"
-                    className="text-sm font-semibold py-2 px-4 rounded-lg border-2 bg-transparent border-gradient bg-gradient-to-r from-blue-700 to-pink-700 text-transparent bg-clip-text hover:bg-gradient-to-r hover:from-blue-700 hover:to-pink-700 hover:text-white transition-all duration-300 ease-in-out"
-                    download
-                  >
-                    Download CV
-                  </a>
-                </li>
-              </ul>
+            {/* Logo */}
+            <div className="text-3xl uppercase font-bold text-primary dark:text-white mb-6">
+              Ahmad
             </div>
+
+            {/* Links */}
+            <ul className="flex flex-col space-y-6 text-center">
+              {links.map((link, index) => (
+                <li key={index}>
+                  <Link
+                    href={link.href}
+                    className={`text-lg font-medium ${
+                      pathname === link.href || (pathname === "/" && link.href === "/")
+                        ? "text-primary dark:text-white"
+                        : "text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-white"
+                    }`}
+                    onClick={toggleNavbar}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <a
+                  href="/Profile.pdf"
+                  className="text-base font-semibold py-2 px-4 rounded-lg border-2 bg-transparent border-gradient bg-gradient-to-r from-blue-700 to-pink-700 text-transparent bg-clip-text hover:bg-gradient-to-r hover:from-blue-700 hover:to-pink-700 hover:text-white transition-all duration-300 ease-in-out"
+                  download
+                >
+                  Download CV
+                </a>
+              </li>
+            </ul>
           </div>
         )}
       </nav>
-    </section>
+    </header>
   );
 }

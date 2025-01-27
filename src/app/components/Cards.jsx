@@ -1,9 +1,3 @@
-"use client";
-import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-
-// Custom Image component using div as a background
 const Image = ({ src, alt, className }) => (
   <div
     className={`${className} bg-cover bg-center`}
@@ -13,17 +7,12 @@ const Image = ({ src, alt, className }) => (
 );
 
 const CardSection = () => {
-  useEffect(() => {
-    AOS.init();
-  }, []);
-
   const cards = [
     {
       title: "Responsive Design",
       description:
         "Learn to use modern CSS frameworks and techniques to make your site look perfect on desktops, tablets, and mobile phones.",
       image: "/design.webp",
-      aos: "slide-left",
       link: "https://micrologicx.net/web-development/introduction-to-css",
     },
     {
@@ -31,7 +20,6 @@ const CardSection = () => {
       description:
         "Explore core concepts, syntax, and create interactive, dynamic user experiences that bring your websites to life.",
       image: "/masterjs.webp",
-      aos: "fade-up",
       link: "https://micrologicx.net/web-development/mastering-javascript-basics-a-beginner-s-guide-to-core-concepts",
     },
     {
@@ -39,18 +27,17 @@ const CardSection = () => {
       description:
         "Dive into server-side rendering, static site generation, and advanced React concepts to elevate your development skills.",
       image: "/nextjs.webp",
-      aos: "slide-right",
       link: "https://nextjs.org/docs",
     },
   ];
 
   return (
     <section id="blogs">
-      <div className="pt-4 container mx-auto px-6 md:px-12">
-        <h2 className="text-center text-5xl font-semibold pb-10">
+      <div className="py-12 px-6 md:px-12 bg-gray-100 dark:bg-gray-800">
+        <h2 className="text-center text-4xl lg:text-5xl font-semibold pb-10">
           MY{" "}
           <span
-            className="text-gradient Capitalize text-4xl lg:text-6xl font-semibold"
+            className="text-gradient capitalize text-5xl lg:text-6xl font-semibold"
             style={{
               backgroundImage: "linear-gradient(45deg, #1E90FF, #FF1493)",
               WebkitBackgroundClip: "text",
@@ -70,21 +57,17 @@ const CardSection = () => {
   );
 };
 
-const Card = ({ card, delay }) => (
-  <div
-    className="card-container bg-white rounded-lg shadow-xl overflow-hidden"
-    data-aos={card.aos}
-    data-aos-delay={delay}
-  >
+const Card = ({ card }) => (
+  <div className="relative bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden transform transition-all duration-300 hover:translate-y-[-10px] hover:shadow-2xl">
     <Image src={card.image} alt={card.title} className="w-full h-48" />
-    <div className="p-4 text-justify bg-gray-100">
-      <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
-      <p className="text-gray-600">{card.description}</p>
+    <div className="p-4 bg-gray-100 dark:bg-gray-700 text-justify">
+      <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{card.title}</h3>
+      <p className="text-gray-600 dark:text-gray-300">{card.description}</p>
       <a
         href={card.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-2 inline-block bg-blue-500 text-white font-semibold px-4 py-2 text-sm rounded-lg hover:bg-blue-600 transition-all duration-200 focus:outline-none"
+        className="mt-2 inline-block bg-gray-700 text-white font-semibold px-4 py-2 text-sm rounded-lg hover:bg-gray-900 dark:bg-gray-600 dark:hover:bg-gray-500 transition-all duration-200 focus:outline-none"
       >
         Learn More
       </a>

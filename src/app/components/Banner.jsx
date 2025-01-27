@@ -47,18 +47,18 @@ export default function MainPage() {
   }, [charIndex, isDeleting, index, roles]);
 
   return (
-    <section id="home" className="main_page py-16 relative overflow-hidden bg-slate-100">
+    <section id="home" className="main_page py-8 lg:py-16 relative overflow-hidden bg-gray-100 dark:bg-gray-900">
       <div className="animated-squares absolute inset-0 pointer-events-none">
         {[...Array(10)].map((_, i) => (
           <div key={i} className={`square square-${i + 1}`}></div>
         ))}
       </div>
-      <div className="container mx-auto px-2 lg:px-8 py-5 z-10">
+      <div className="px-4 lg:px-8 py-4 ">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
           <div className="mt-5 text-center md:text-left">
             <h3 className="text-2xl font-medium">Hello, I am</h3>
-            <h1 className="text-4xl text-black lg:text-6xl">Ahmad Junaid</h1>
-            <h3 className="text-xl text-black lg:text-2xl mt-3">
+            <h1 className="text-4xl lg:text-6xl">Ahmad Junaid</h1>
+            <h3 className="text-xl lg:text-2xl mt-3">
               I am a{" "}
               <span
                 className="text-gradient text-3xl font-semibold"
@@ -98,7 +98,7 @@ export default function MainPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.icon.iconName}
-                  className="border-1 rounded-full p-3 text-black transition-transform transform hover:-translate-y-1 hover:bg-gradient-to-br hover:from-blue-500 hover:to-pink-500 hover:text-white"
+                  className="border-1 rounded-full p-3 transition-transform transform hover:-translate-y-1 hover:bg-gradient-to-br hover:from-blue-500 hover:to-pink-500 hover:text-white"
                 >
                   <FontAwesomeIcon icon={social.icon} />
                 </a>
@@ -112,7 +112,7 @@ export default function MainPage() {
               width={340}
               height={340}
               priority
-              className="rounded-full profile z-10"
+              className="rounded-full profile"
             />
           </div>
         </div>
