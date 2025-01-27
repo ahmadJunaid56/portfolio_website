@@ -2,7 +2,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPhone, faEnvelope, faAddressCard } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPhone,
+  faEnvelope,
+  faAddressCard,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -25,7 +29,7 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Submitting...");
-
+  
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -34,17 +38,19 @@ export default function Contact() {
         },
         body: JSON.stringify(formData),
       });
-
+  
       const result = await response.json();
       if (response.status === 200) {
         setStatus("Form submitted successfully!");
+        setFormData({ name: "", email: "", phone: "", message: "" }); // Reset form
       } else {
         setStatus(result.message || "Error submitting form");
       }
-    } catch {
-      setStatus("Error submitting form");
+    } catch (error) {
+      setStatus("Failed to submit the form. Please try again.");
     }
   };
+  
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-8 py-16 px-6 lg:px-12 border-t-2 bg-slate-100 dark:bg-gray-800">
@@ -54,16 +60,28 @@ export default function Contact() {
           Quick links
         </h2>
         <nav className="flex flex-col space-y-6">
-          <Link href="/disclaimer" className="font-medium transition duration-300 hover:underline text-gray-700 dark:text-gray-300">
+          <Link
+            href="/disclaimer"
+            className="font-medium transition duration-300 hover:underline text-gray-700 dark:text-gray-300"
+          >
             Disclaimer
           </Link>
-          <Link href="/privacypolicy" className="font-medium transition duration-300 hover:underline text-gray-700 dark:text-gray-300">
+          <Link
+            href="/privacypolicy"
+            className="font-medium transition duration-300 hover:underline text-gray-700 dark:text-gray-300"
+          >
             Privacy Policy
           </Link>
-          <Link href="/about" className="font-medium transition duration-300 hover:underline text-gray-700 dark:text-gray-300">
+          <Link
+            href="/about"
+            className="font-medium transition duration-300 hover:underline text-gray-700 dark:text-gray-300"
+          >
             About
           </Link>
-          <Link href="/contact" className="font-medium transition duration-300 hover:underline text-gray-700 dark:text-gray-300">
+          <Link
+            href="/contact"
+            className="font-medium transition duration-300 hover:underline text-gray-700 dark:text-gray-300"
+          >
             Contact
           </Link>
         </nav>
@@ -75,16 +93,31 @@ export default function Contact() {
           Chat me!
         </h2>
         <div className="flex items-center mb-6">
-          <FontAwesomeIcon icon={faPhone} className="mr-2 text-gray-800 dark:text-white" />
-          <p className="text-base text-gray-700 dark:text-gray-300">+92 303-6648666</p>
+          <FontAwesomeIcon
+            icon={faPhone}
+            className="mr-2 text-gray-800 dark:text-white"
+          />
+          <p className="text-base text-gray-700 dark:text-gray-300">
+            +92 303-6648666
+          </p>
         </div>
         <div className="flex items-center mb-6">
-          <FontAwesomeIcon icon={faEnvelope} className="mr-2 text-gray-800 dark:text-white" />
-          <p className="text-base text-gray-700 dark:text-gray-300">stackmaster6648@gmail.com</p>
+          <FontAwesomeIcon
+            icon={faEnvelope}
+            className="mr-2 text-gray-800 dark:text-white"
+          />
+          <p className="text-base text-gray-700 dark:text-gray-300">
+            stackmaster6648@gmail.com
+          </p>
         </div>
         <div className="flex items-center mb-6">
-          <FontAwesomeIcon icon={faAddressCard} className="mr-2 text-gray-800 dark:text-white" />
-          <p className="text-base text-gray-700 dark:text-gray-300">Madina Town Faisalabad, Pakistan</p>
+          <FontAwesomeIcon
+            icon={faAddressCard}
+            className="mr-2 text-gray-800 dark:text-white"
+          />
+          <p className="text-base text-gray-700 dark:text-gray-300">
+            Madina Town Faisalabad, Pakistan
+          </p>
         </div>
       </div>
 
@@ -125,6 +158,8 @@ export default function Contact() {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
+              pattern="^\d{10,15}$" // Allows 10 to 15 digits
+              title="Phone number must be 10-15 digits long"
               required
             />
           </div>
@@ -140,7 +175,10 @@ export default function Contact() {
             ></textarea>
           </div>
           <div className="mt-4 text-center md:text-left">
-            <button className="relative outline px-6 py-2 rounded-lg font-semibold bg-transparent transition-all duration-500 ease-in-out">
+            <button
+              type="submit"
+              className="relative outline px-6 py-2 rounded-lg font-semibold bg-transparent transition-all duration-500 ease-in-out"
+            >
               Submit
               <span className="absolute top-1/2 right-3 transform -translate-y-1/2 opacity-0 hover:opacity-100 hover:translate-x-3 transition-all duration-500 ease-in-out">
                 →
