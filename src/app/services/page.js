@@ -24,7 +24,7 @@ const ServicesPage = () => {
             </div>
             <div className="p-6">
               <p className="text-gray-700 dark:text-gray-300">
-                We offer custom web development solutions tailored to your business needs. Whether it's a basic landing page or a complex web application, our team can help you build a robust online presence.
+                We offer custom web development solutions tailored to your business needs. Whether its a basic landing page or a complex web application, our team can help you build a robust online presence.
               </p>
               <p className="text-gray-700 dark:text-gray-300 mt-4">
                 <strong>Pricing:</strong> Starting at $999

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Header from '../components/Header'
 import Footer from '../components/Contact'
 import Copyright from '../components/Copyright'
@@ -30,7 +31,7 @@ const page = () => {
         <section className="bg-white dark:bg-gray-900 rounded-lg p-8 mb-8">
           <div className="flex flex-col md:flex-row items-center mb-6">
             {/* Add the main image here */}
-            <img
+            <Image
               src="/portfolio-image.webp"
               alt="Ahmad Junaid"
               className="rounded-full w-full h-96 object-cover mb-4 md:mb-0 md:mr-6"

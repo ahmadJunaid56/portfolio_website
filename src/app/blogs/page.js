@@ -1,5 +1,6 @@
 import React from 'react';
 import fs from 'fs';
+import Image from "next/image";
 import matter from 'gray-matter';
 import Link from 'next/link';
 import Navbar from '../components/Header'
@@ -35,8 +36,8 @@ export default function BlogPage() {
               key={index}
               className="rounded-lg shadow-lg overflow-hidden border hover:shadow-xl transition-shadow duration-300"
             >
-              {/* Blog Image */}z
-              <img
+              {/* Blog Image */}
+              <Image
                 src={blog.image}
                 alt={blog.title}
                 className="w-full h-48 object-cover"

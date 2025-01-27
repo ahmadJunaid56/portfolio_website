@@ -22,7 +22,7 @@ export default async function handler(req, res) {
     try {
       await transporter.sendMail(mailOptions);
       res.status(200).json({ message: "Form submitted successfully!" });
-    } catch (error) {
+    } catch {
       res.status(500).json({ message: "Error submitting form" });
     }
   } else {
