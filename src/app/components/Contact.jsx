@@ -24,6 +24,7 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Form submitted");  // Check if this logs in the console
     setStatus("Submitting...");
 
     // Client-side validation
@@ -48,6 +49,7 @@ export default function Contact() {
       });
 
       const result = await response.json();
+      console.log(result);  // Log response for debugging
 
       if (response.status === 201) {
         setStatus("Form submitted successfully!");

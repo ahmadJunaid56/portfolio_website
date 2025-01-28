@@ -16,6 +16,7 @@ const transporter = nodemailer.createTransport({
 
 export async function POST(req) {
   try {
+    // Extract form data from the request
     const { name, email, phone, message } = await req.json();
 
     // Validate form fields
